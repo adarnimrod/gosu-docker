@@ -1,6 +1,19 @@
 # Dockerized gosu
 
-> Docker images with gosu installed.
+> Alpine Docker image with gosu installed.
+
+## Usage
+
+The image is based on the latest Alpine image with just `gosu` installed. If you
+wish to use a different image as a base then you can just copy the binary from
+this image so:
+
+```
+FROM adarnimrod/gosu as gosu
+
+FROM alpine:latest
+COPY --from=gosu /usr/local/bin/gosu /usr/local/bin/
+```
 
 ## License
 
